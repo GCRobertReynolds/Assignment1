@@ -1,14 +1,20 @@
-/// <reference path="_reference.ts" />
-import http = require('http');
+/* File Name: server.ts
+ * Author Name: Robert Reynolds
+ * Website Name: http://200288068-assignment1.azurewebsites.net/
+ * File Description: Server
+ */
 
+/// <reference path="_reference.ts" />
+
+import express = require('express');
+
+var app:express.Express = express();
 var port:number = process.env.port || 3000;
 
-var server:http.Server = http.createServer(
-    function(req:http.ServerRequest, res:http.ServerResponse){
-    res.writeHead(200,{'Content-Type':'text/plain'});
-    res.end("Hello Node!");
+app.get('/', function(req:express.Request, res:express.Response) {
+   res.send('Hello Express'); 
 });
 
-server.listen(port, function(){
-    console.log("Server started.. Listening on port:" + port);
+app.listen(port, function(){
+    console.log("App Server Started.. On Port:" + port);
 });

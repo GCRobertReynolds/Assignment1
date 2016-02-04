@@ -1,11 +1,16 @@
+/* File Name: server.ts
+ * Author Name: Robert Reynolds
+ * Website Name: http://200288068-assignment1.azurewebsites.net/
+ * File Description: Server
+ */
 /// <reference path="_reference.ts" />
-var http = require('http');
+var express = require('express');
+var app = express();
 var port = process.env.port || 3000;
-var server = http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end("Hello Node!");
+app.get('/', function (req, res) {
+    res.send('Hello Express');
 });
-server.listen(port, function () {
-    console.log("Server started.. Listening on port:" + port);
+app.listen(port, function () {
+    console.log("App Server Started.. On Port:" + port);
 });
 //# sourceMappingURL=server.js.map
