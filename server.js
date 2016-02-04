@@ -7,8 +7,13 @@
 var express = require('express');
 var app = express();
 var port = process.env.port || 3000;
-app.get('/', function (req, res) {
-    res.send('Hello Express');
+//main route
+app.get('/', function (req, res, next) {
+    res.send('Hello Express!');
+});
+//route for /info page
+app.get('/info', function (req, res) {
+    res.send('Your Custom Info Page goes here');
 });
 app.listen(port, function () {
     console.log("App Server Started.. On Port:" + port);
